@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+{% block content %}
+<html>
+    <head>
+    	<script src="{{ url_for('static', filename='js/jquery-3.5.1.min.js') }}"></script>
+    	<script src="{{ url_for('static', filename='js/jquery.easypiechart.js') }}"></script>
+    	<script src="{{ url_for('static', filename='js/Chart.min.js') }}"></script>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+    
+    <body>    
+        <div class="container">
+
+        	<div class="leftHalf">
+	        	<div class="barChartDiv">
+	            	<canvas id="myChart1" width='500' height='300'></canvas>
+	        	</div>
+
+	        	<div class="lineChartDiv">
+	            	<canvas id="myChart2" width='500' height='300'></canvas>
+	        	</div>
+	        </div>
+
+	        <div class="rightHalf">
+	        	
+			    <div class="box">
+			        <br><br><br><br>
+			        
+					<div class="chart" data-percent="73">8,793</div>
+						<h2>Total Steps</h2>
+						<br><br><br><br><br><br><br><br><br><br>
+
+					<div class="chart" data-percent="80">2,338</div>
+						<h2>Calories Burned</h2>
+				</div>
+
+				<div class="healthScore">
+					<h1 class="heading">Your current health score is: </h1><br>
+					<p class="score">500</p>
+				</div>
+
+			
+			</div>
+			
+
+        </div>
+
+        
+		<script>
+	    	$(function() {
+		        $('.chart').easyPieChart({
+		            size: 120,
+		            barColor: '#17d3e6',
+		            scaleColor: false,
+		            lineWidth: 10,
+		            trackColor:'#373737',
+		            animate: 2000
+		        });
+	    	});
+		</script>
+        
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    </body>
+                                      
+</html>
+{% endblock %}
